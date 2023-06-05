@@ -4,22 +4,27 @@
     {
         static void Main(string[] args)
         {
-            int isPresent = 1;
+            int isFullTime = 1;
+            int isPartTime = 2;
             int empWagePerHour = 20;
 
             int empHrs = 0;
             int empWage = 0;
             Random random = new Random();
 
-            int empCheck = random.Next(0,2);
+            int empCheck = random.Next(0,3);
 
-            if (empCheck == isPresent )
+            switch (empCheck)
             {
-                empHrs = 8;
-            }
-            else
-            {
-                empHrs = 0;
+                case 1:
+                    empHrs = 8;
+                    break;
+                case 2:
+                    empHrs = 4;
+                    break;
+                default: 
+                    empWage = 0; 
+                    break;
             }
             empWage = empHrs * empWagePerHour;
             Console.WriteLine("Daily Employee Wage is " +empWage);
