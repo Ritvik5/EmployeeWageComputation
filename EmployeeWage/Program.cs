@@ -4,8 +4,10 @@
     {
         public static void Main(string[] args)
         {
-            //ComputeEmpWage.ComputeEmployeeWage("Relience",20,20,100);
-            ComputeEmpWage.ComputeEmployeeWage("Nike",2000,22,176);
+            ComputeEmpWage reliance = new ComputeEmpWage("Reliance",20,20,100);
+            reliance.ComputeEmployeeWage();
+            ComputeEmpWage dMart = new ComputeEmpWage("Dmart", 20, 15, 180);
+            dMart.ComputeEmployeeWage();
         }
     }
 }
