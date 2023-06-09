@@ -10,11 +10,8 @@ namespace EmployeeWage
     {
         public const int isFullTime = 1;
         public const int isPartTime = 2;
-        public const int empWagePerHour = 20;
-        public const int numOfWorkingDays = 20;
-        public const int maxHrsInMonth = 100;
 
-        public static void ComputeEmployeeWage()
+        public static void ComputeEmployeeWage(string company, int empWagePerHour, int numOfWorkingDays, int maxHrsInMonth)
         {
             int empHrs = 0;
             int totalEmpHrs = 0;
@@ -40,10 +37,10 @@ namespace EmployeeWage
                 }
                 totalEmpHrs += empHrs;
                 int empWage = empHrs * empWagePerHour;
-                Console.WriteLine("Day is : " + totalWorkingDays  +" and wage for that day is : " + empWage);
+                Console.WriteLine("Day is : " + totalWorkingDays  +" ,working hours is " + empHrs + " wage for the day is : " + empWage);
             }
             totalEmpWage = totalEmpHrs * empWagePerHour;
-            Console.WriteLine("Monthly Employee Wage is " + totalEmpWage);
+            Console.WriteLine("Total Employee Wage for company " + company + " is " + totalEmpWage);
         }
     }
 }
