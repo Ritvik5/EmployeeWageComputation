@@ -11,26 +11,24 @@ namespace EmployeeWage
         public const int isFullTime = 1;
         public const int isPartTime = 2;
 
-        private int numOfCompany = 0;
-        private ComputeEmpWage[] companyEmpWageArray;
-
+        private List<ComputeEmpWage> companyEmpWageList;
         public EmpWageForMultipleCompanies()
         {
-            this.companyEmpWageArray = new ComputeEmpWage[5];
+            this.companyEmpWageList = new List<ComputeEmpWage>();
         }
 
         public void AddCompanyEmpWage(string company, int empWagePerHour, int numOfWorkingDays, int maxHrsInMonth)
         {
-            companyEmpWageArray[this.numOfCompany] = new ComputeEmpWage(company, empWagePerHour, numOfWorkingDays, maxHrsInMonth);
-            numOfCompany++;
+            ComputeEmpWage companyEmpWage = new ComputeEmpWage(company, empWagePerHour, numOfWorkingDays, maxHrsInMonth);
+            companyEmpWageList.Add(companyEmpWage);
         }
 
         public void ComputeEmployeeWage()
         {
-            for(int i = 0;i < numOfCompany;i++)
+            foreach (ComputeEmpWage companyEmpWage in companyEmpWageList)
             {
-                companyEmpWageArray[i].setTotalEmpWage(this.ComputeEmployeeWage(this.companyEmpWageArray[i]));
-                Console.WriteLine(this.companyEmpWageArray[i].toString());
+                companyEmpWage.setTotalEmpWage(ComputeEmployeeWage(companyEmpWage));
+                Console.WriteLine(companyEmpWage.toString());
             }
         }
 
